@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine AS build-env
 
 WORKDIR /work
 COPY . .
-RUN gradlew assemble
+RUN ./gradlew assemble
 
 FROM openjdk:8-jdk-alpine
 
