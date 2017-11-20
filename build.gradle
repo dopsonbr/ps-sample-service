@@ -32,13 +32,24 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+    springCloudVersion = 'Dalston.SR4'
+}
 
 dependencies {
+	compile 'de.codecentric:spring-boot-admin-starter-client:1.5.5'
 	compile group: 'io.prometheus', name: 'simpleclient_spring_boot', version: '0.1.0'
 
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
