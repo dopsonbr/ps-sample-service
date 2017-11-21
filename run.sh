@@ -4,7 +4,7 @@ echo '************************************************************************'
 echo "waiting for the config server to start on port $CONFIG_SERVER_PORT"
 echo '************************************************************************'
 
-while ! `nc -z config_server $CONFIG_SERVER_PORT `;
+while ! `nc -z config-server $CONFIG_SERVER_PORT `;
   [ ca ]; do sleep 3; done
 echo '>>>>>>>>>>>>>>> config server has started'
 
